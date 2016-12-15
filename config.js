@@ -11,7 +11,7 @@ var config = {
   get mini_assets() { return !this.debug; }, // 是否启用静态文件的合并压缩，详见视图中的Loader
 
   name: '极客求学', // 博客名字
-  description: '极客求学，技术宅', // 博客的描述
+  description: '哲人无忧，智者常乐。并不是因为所爱的一切他都拥有了，而是所拥有的一切他都爱。', // 博客的描述
   keywords: '大数据、编程语言、互联网',
 
   // 添加到 html head 中的信息
@@ -23,7 +23,10 @@ var config = {
   // 右上角的导航区
   site_navs: [
     // 格式 [ path, title, [target=''] ]
-    [ '/about', '关于' ]
+    ['share', '大数据'],
+    ['ask', '编程语言'],
+    ['job', '互联网'],
+    ['about', '关于' ]
   ],
   // cdn host，如 http://cnodejs.qiniudn.com
   site_static_host: '', // 静态文件存储域名
@@ -79,6 +82,8 @@ var config = {
 
   // admin 可删除博文，编辑标签。把 user_login_name 换成你的登录名
   admins: { kevin: true },
+  //博主登陆名称
+  blogger:'kevin',
 
   // github 登陆的配置
   GITHUB_OAUTH: {
@@ -135,7 +140,7 @@ var config = {
 };
 
 if (process.env.NODE_ENV === 'test') {
-  config.db = 'mongodb://127.0.0.1/blog_test';
+  config.db = 'mongodb://127.0.0.1:27017/blog_test';
 }
 
 module.exports = config;

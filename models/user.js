@@ -43,6 +43,8 @@ var UserSchema = new Schema({
     retrieve_key: {type: String},
 
     accessToken: {type: String},
+
+    description: {type: String}
 });
 
 UserSchema.plugin(BaseModel);

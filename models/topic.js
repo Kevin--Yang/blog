@@ -7,6 +7,7 @@ var _ = require('lodash');
 
 var TopicSchema = new Schema({
     title: {type: String},
+    description: {type: String},
     content: {type:String},
     author_id: {type: ObjectId},
     top: { type: Boolean, default: false }, // 置顶帖
