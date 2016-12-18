@@ -85,7 +85,8 @@ exports.signup = function (req, res, next) {
  */
 exports.showLogin = function (req, res) {
   req.session._loginReferer = req.headers.referer;
-  res.render('sign/signin');
+  var nav = 'index';
+  res.render('sign/signin',{nav: nav});
 };
 
 /**

@@ -115,7 +115,6 @@ exports.index = function (req, res, next) {
         pages: pages,
         tabs: config.tabs,
         tab: tab,
-        navs: config.site_navs,
         nav: nav,
         pageTitle: tabName && (tabName + '版块'),
       });

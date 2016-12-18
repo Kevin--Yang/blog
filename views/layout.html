@@ -53,18 +53,30 @@
 <div class="blog-masthead">
   <div class="container">
     <nav class="blog-nav">
-      <% [['index', '首页']].concat(navs).forEach(function (pair) {
+      <% [['index', '首页'], ['share', '大数据'],['ask', '编程语言'],['job', '互联网'],['about', '关于' ]].forEach(function (pair) {
       var value = pair[0];
       var text = pair[1]; %>
       <a href="<%= value ? '/' + value : '/' %>"
          class="blog-nav-item <%= value === nav ? 'active' : '' %>"><%= text %></a>
       <% }) %>
-      <form class="navbar-form navbar-right" role="search">
+
+      <form class="navbar-form navbar-left" role="search">
         <div class="form-group">
           <input type="text" class="form-control" placeholder="搜索">
         </div>
         <button type="submit" class="btn btn-default">搜索</button>
       </form>
+
+      <div class="navbar-right">
+      <% if (current_user) { %>
+      <a class="blog-nav-item" href='/setting'>设置</a>
+      <a class="blog-nav-item" href='/signout' data-method="post" rel="nofollow">退出</a>
+      <% } else { %>
+      <a class="blog-nav-item" href='/signup'>注册</a>
+      <a class="blog-nav-item" href='/signin'>登录</a>
+      <% } %>
+      </div>
+
     </nav>
   </div>
 </div>
