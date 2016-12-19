@@ -18,8 +18,8 @@ var config = {
   site_headers: [
     '<meta name="author" content="KEVINYOUNG" />'
   ],
-  site_logo: '/public/images/cnodejs_light.svg', // default is `name`
-  site_icon: '/public/images/cnode_icon_32.png', // 默认没有 favicon, 这里填写网址
+  site_logo: '/public/images/logo_a.png', // default is `name`
+  site_icon: '/public/images/logo_b.png', // 默认没有 favicon, 这里填写网址
   // 右上角的导航区
   site_navs: [
     // 格式 [ path, title, [target=''] ]
