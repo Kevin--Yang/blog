@@ -22,18 +22,16 @@ exports.index = function (req, res, next) {
   var page = parseInt(req.query.page, 10) || 1;
   page = page > 0 ? page : 1;
   var tab = req.query.tab || 'all';
-  var nav = 'index';
-
 
   var proxy = new eventproxy();
   proxy.fail(next);
 
-  // 取博主信息
+    // 取博主信息
     User.getUserByLoginName(config.blogger,proxy.done('blogger', function (blogger) {
         blogger.pass = '';
         return blogger;
     }));
-  // END 取博主信息
+    // END 取博主信息
 
   // 取主题
   var query = {};
@@ -104,7 +102,7 @@ exports.index = function (req, res, next) {
 
   var tabName = renderHelper.tabName(tab);
   proxy.all('blogger', 'topics', 'tops', 'no_reply_topics', 'pages',
-    function (blogger, topics, tops, no_reply_topics, pages) {
+    function (blogger,topics, tops, no_reply_topics, pages) {
       res.render('index', {
         blogger: blogger,
         topics: topics,
@@ -115,7 +113,6 @@ exports.index = function (req, res, next) {
         pages: pages,
         tabs: config.tabs,
         tab: tab,
-        nav: nav,
         pageTitle: tabName && (tabName + '版块'),
       });
     });

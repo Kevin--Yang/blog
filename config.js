@@ -23,9 +23,6 @@ var config = {
   // 右上角的导航区
   site_navs: [
     // 格式 [ path, title, [target=''] ]
-    ['share', '大数据'],
-    ['ask', '编程语言'],
-    ['job', '互联网'],
     ['about', '关于' ]
   ],
   // cdn host，如 http://cnodejs.qiniudn.com
@@ -82,7 +79,7 @@ var config = {
 
   // admin 可删除博文，编辑标签。把 user_login_name 换成你的登录名
   admins: { kevin: true },
-  //博主登陆名称
+  //博主
   blogger:'kevin',
 
   // github 登陆的配置
@@ -121,9 +118,9 @@ var config = {
 
   // 版块
   tabs: [
-    ['share', '大数据'],
-    ['ask', '编程语言'],
-    ['job', '互联网'],
+    ['share', '分享'],
+    ['ask', '问答'],
+    ['job', '招聘'],
   ],
 
   // 极光推送

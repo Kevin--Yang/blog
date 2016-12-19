@@ -51,6 +51,10 @@
                       placeholder="标题字数 10 字以上"
                     ><%= typeof(title) !== 'undefined' && title || '' %></textarea>
 
+            <textarea class='span9' id='description' name='description' rows='1'
+                      placeholder="描述字数 10 字以上"
+            ><%= typeof(description) !== 'undefined' && description || '' %></textarea>
+
             <div class='markdown_editor in_editor'>
               <div class='markdown_in_editor'>
                 <textarea class='editor' name='t_content' rows='20'

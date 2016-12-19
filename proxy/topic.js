@@ -215,7 +215,7 @@ exports.reduceCount = function (id, callback) {
   });
 };
 
-exports.newAndSave = function (title, description, content, tab, authorId, callback) {
+exports.newAndSave = function (title, content, tab, authorId, callback) {
   var topic       = new Topic();
   topic.title     = title;
   topic.description = description;

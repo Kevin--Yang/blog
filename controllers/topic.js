@@ -135,10 +135,10 @@ exports.put = function (req, res, next) {
     editError = '标题不能是空的。';
   } else if (title.length < 5 || title.length > 100) {
     editError = '标题字数太多或太少。';
+  } else if (description.length < 5 || description.length > 100) {
+    editError = '描述字数太多或太少。';
   } else if (!tab || allTabs.indexOf(tab) === -1) {
     editError = '必须选择一个版块。';
-  } else if (description === '') {
-      editError = '描述不可为空';
   } else if (content === '') {
     editError = '内容不可为空';
   }
@@ -193,7 +193,6 @@ exports.showEdit = function (req, res, next) {
         action: 'edit',
         topic_id: topic._id,
         title: topic.title,
-        description: topic.description,
         content: topic.content,
         tab: topic.tab,
         tabs: config.tabs
@@ -209,7 +208,6 @@ exports.update = function (req, res, next) {
   var title    = req.body.title;
   var tab      = req.body.tab;
   var content  = req.body.t_content;
-  var description = req.body.description;
 
   Topic.getTopicById(topic_id, function (err, topic, tags) {
     if (!topic) {
@@ -221,7 +219,6 @@ exports.update = function (req, res, next) {
       title   = validator.trim(title);
       tab     = validator.trim(tab);
       content = validator.trim(content);
-      description = validator.trim(description);
 
       // 验证
       var editError;
@@ -229,9 +226,7 @@ exports.update = function (req, res, next) {
         editError = '标题不能是空的。';
       } else if (title.length < 5 || title.length > 100) {
         editError = '标题字数太多或太少。';
-      } else if (description === '') {
-          editError = '描述不可为空';
-      }  else if (!tab) {
+      } else if (!tab) {
         editError = '必须选择一个版块。';
       }
       // END 验证
@@ -242,7 +237,6 @@ exports.update = function (req, res, next) {
           edit_error: editError,
           topic_id: topic._id,
           content: content,
-          description: description,
           tabs: config.tabs
         });
       }
@@ -250,7 +244,6 @@ exports.update = function (req, res, next) {
       //保存话题
       topic.title     = title;
       topic.content   = content;
-      topic.description = description;
       topic.tab       = tab;
       topic.update_at = new Date();
 

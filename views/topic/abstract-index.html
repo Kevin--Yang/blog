@@ -1,0 +1,24 @@
+<div class="blog-post">
+  <h2 class="blog-post-title"><a href='/topic/<%= topic._id %>' style="text-decoration: none;"><%= topic.title %></a></h2>
+  <p class="blog-post-meta">
+    <% if (topic.top) { %>
+    <span class='label label-success'>置顶</span>
+    <% } else if (topic.good) { %>
+    <span class='label label-success'>精华</span>
+    <% } else if (typeof(tab) !== 'undefined' &&  tab === 'all' && topic.tabName) { %>
+    <span class="label label-default"><%= topic.tabName %></span>
+    <% } %>
+    <%= topic.create_at_ago() %> 由 <a href="/user/<%= topic.author.loginname %>"><%= topic.author.loginname %></a>发布,
+    <span class="count_of_replies" title="回复数">
+      <%= topic.reply_count %>
+    </span>
+    <span class="count_seperator">/</span>
+    <span class="count_of_visits" title='点击数'>
+      <%= topic.visit_count %>
+    </span>
+  </p>
+
+  <p><%= topic.description %></p>
+
+</div>
+<hr>
